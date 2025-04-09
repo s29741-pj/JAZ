@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: cwiczenia1503
+  main:
+    banner-mode: 'off'
+logging:
+  level:
+    root: 'off'
+custom:
+  login-url: test-login
+  credentials:
+    user: test-user
+    password: pass
+app:
+  environment: default
+
