@@ -1,0 +1,7 @@
+Adres serwera - szuflandia.pjwstk.edu.pl
+Port - 3306
+Login - sXXXXX (s + nr indeksu)
+Hasło - trzy pierwsze litery imienia z wielkiej litery, kropka,
+cztery pierwsze litery nazwiska z wielkiej (Jan Kowalski miałby np
+hasło: Jan.Kowa)
+Nazwa bazy - sXXXXX (s + nr indeksu)

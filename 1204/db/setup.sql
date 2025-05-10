@@ -1,6 +1,6 @@
 CREATE TABLE Movie
 (
-    id INT PRIMARY KEY NOT NULL,
+    id BIGINT PRIMARY KEY NOT NULL,
     title VARCHAR(100),
     genre VARCHAR(100)
 );
