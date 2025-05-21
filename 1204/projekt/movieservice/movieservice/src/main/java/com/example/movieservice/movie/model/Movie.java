@@ -6,20 +6,22 @@ import jakarta.persistence.*;
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String title;
-//    @Enumerated(EnumType.STRING)
     private String genre;
+    @Column(name="isAvailable")
+    private Boolean isAvailable;
 
-public Movie(){
+    public Movie() {
 
-}
+    }
 
-public Movie(int id,  String title, String genre) {
-    this.id = id;
-    this.title = title;
-    this.genre = genre;
-}
+    public Movie(Long id, String title, String genre, Boolean isAvailable) {
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.isAvailable = isAvailable;
+    }
 
     public long getId() {
         return id;
@@ -39,17 +41,26 @@ public Movie(int id,  String title, String genre) {
     }
 
     public String getGenre() {
-    return genre;
+        return genre;
     }
 
     public void setGenre(String genre) {
-    this.genre = genre;
+        this.genre = genre;
     }
 
-    public String getMovieData(){
+    public String getMovieData() {
         return "Title: " + this.title + " | Genre: " + this.genre;
     }
 
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailableTrue(Movie movie) {
+        if(!movie.isAvailable) {
+            this.isAvailable = true;
+        }
+    }
 
 
 //    private static int idCounter = 0;
