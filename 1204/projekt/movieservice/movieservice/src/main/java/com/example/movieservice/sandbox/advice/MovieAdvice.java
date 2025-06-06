@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class MovieAdvice {
-//    dodać sprawdzanie po obiektach w liście
-
 
     @ExceptionHandler(MovieNotFoundException.class)
     public ResponseEntity<String> handleMovieNotFoundException(MovieNotFoundException e) {

@@ -22,7 +22,13 @@ public class MyRestController {
     //home
     @GetMapping("/movies/available_true/{id}")
     public ResponseEntity<Movie> availableTrue(@PathVariable long id) {
-        movieService.changeAvailability(id);
+        movieService.changeAvailabilityTrue(id);
+        return ResponseEntity.ok(movieService.findById(id));
+    }
+
+    @GetMapping("/movies/available_false/{id}")
+    public ResponseEntity<Movie> availableFalse(@PathVariable long id) {
+        movieService.changeAvailabilityFalse(id);
         return ResponseEntity.ok(movieService.findById(id));
     }
 

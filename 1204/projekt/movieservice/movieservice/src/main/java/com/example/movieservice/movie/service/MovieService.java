@@ -11,52 +11,60 @@ import java.util.Optional;
 
 @Service
 public class MovieService {
-private final MovieRepository movieRepository;
+    private final MovieRepository movieRepository;
 
-public MovieService(MovieRepository movieRepository) {
-    this.movieRepository = movieRepository;
-}
+    public MovieService(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
 
-//home
-public void changeAvailability(long id) {
-    Movie movie = findById(id);
-    movie.setAvailableTrue(movie);
-    movieRepository.save(movie);
-}
+    //home
+    public void changeAvailabilityTrue(long id) {
+        Movie movie = findById(id);
+        movie.setAvailableTrue();
+        movieRepository.save(movie);
+    }
 
-//home
-public Optional findByTitle(String title) {
-    return movieRepository.findByTitle(title);
-}
-//home
-public List<Movie> findByTitleContaining(String title) {
-    return movieRepository.findByTitleContaining(title);
-}
-//home
-public List<Movie> findByGenre(String genre) {
-    return movieRepository.findByGenre(genre);
-}
+    public void changeAvailabilityFalse(long id) {
+        Movie movie = findById(id);
+        movie.setAvailableFalse();
+        movieRepository.save(movie);
+    }
+
+    //home
+    public Optional findByTitle(String title) {
+        return movieRepository.findByTitle(title);
+    }
+
+    //home
+    public List<Movie> findByTitleContaining(String title) {
+        return movieRepository.findByTitleContaining(title);
+    }
+
+    //home
+    public List<Movie> findByGenre(String genre) {
+        return movieRepository.findByGenre(genre);
+    }
 
 
-public Movie findById(Long id) {
-    return movieRepository.findById(id).orElseThrow(() -> new MovieNotFoundException("Movie with ID " + id + " not found."));
-}
+    public Movie findById(Long id) {
+        return movieRepository.findById(id).orElseThrow(() -> new MovieNotFoundException("Movie with ID " + id + " not found."));
+    }
 
-public void create(Movie movie) {
-    movieRepository.save(movie);
-}
+    public void create(Movie movie) {
+        movieRepository.save(movie);
+    }
 
-public void update(Long id, Movie updatedMovie) {
-    Movie movie = findById(id);
-    movie.setGenre(updatedMovie.getGenre());
-    movie.setTitle(updatedMovie.getTitle());
-    movieRepository.save(movie);
-}
+    public void update(Long id, Movie updatedMovie) {
+        Movie movie = findById(id);
+        movie.setGenre(updatedMovie.getGenre());
+        movie.setTitle(updatedMovie.getTitle());
+        movieRepository.save(movie);
+    }
 
-public void delete(Long id) {
-    Movie movie = findById(id);
-    movieRepository.delete(movie);
-}
+    public void delete(Long id) {
+        Movie movie = findById(id);
+        movieRepository.delete(movie);
+    }
 
 //public void add(Movie movie) {
 //    if (movie.getTitle() == null || movie.getTitle().isEmpty()) {

@@ -47,12 +47,12 @@ public class Movie {
         return "Title: " + this.title + " | Genre: " + this.genre;
     }
 
-    public boolean isAvailable() {
+    public Boolean getIsAvailable() {
         return isAvailable;
     }
 
-    public void setAvailableTrue(Movie movie) {
-        if (!movie.isAvailable) {
+    public void setAvailableTrue() {
+        if(!this.isAvailable || this.isAvailable == null) {
             this.isAvailable = true;
         }
     }
